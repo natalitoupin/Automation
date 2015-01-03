@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'uri'
 
 feature 'search_the_web', js: true do
 
@@ -8,9 +7,7 @@ feature 'search_the_web', js: true do
     fill_in "q", :with => "Paperless Post"
     click_link 'Paperless Post: Custom cards and invitations'
     expect(page).to have_css '.svg-logo-full'
-    expect(page.current_url).to eq "https:\/\/www.paperlesspost.com\/"
-    #expect_url_includes 'paperlesspost'
-
+    expect_url_includes 'paperlesspost'
   end
 
   # scenario 'search_yahoo' do
