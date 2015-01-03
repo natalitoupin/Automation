@@ -10,15 +10,16 @@ feature 'search_the_web', js: true do
     expect_url_includes 'paperlesspost'
   end
 
-  # scenario 'search_yahoo' do
-  #   visit 'http://yahoo.com'
-  #   fill_in "p_13838465-p", :with => "Paperless Post"
-  #   click_button "Search Web"
-  #   click_link 'Paperless Post - Official Site'
-  #   find('.svg-logo-full')
-  #   find ('#svg-logo-full').click
-  #   expect(page).to have_css '.svg-logo-full'
-  # end
+  scenario 'search_yahoo' do
+    visit 'http://yahoo.com'
+    fill_in "p_13838465-p", :with => "Paperless Post"
+    click_button "Search Web"
+    click_link 'Paperless Post - Official Site'
+    within_window(page.driver.browser.window_handles.last) do 
+      expect(page).to have_css '.svg-logo-full'
+      expect_url_includes 'paperlesspost'
+    end
+  end
 
   # scenario 'search_bing' do
   #   visit 'http://bing.com'
