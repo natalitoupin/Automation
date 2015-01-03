@@ -21,14 +21,14 @@ feature 'search_the_web', js: true do
     end
   end
 
-  # scenario 'search_bing' do
-  #   visit 'http://bing.com'
-  #   fill_in "q", :with => "Paperless Post"
-  #   find('.go').click
-  #   click_link 'Paperless Post - Official Site'
-  #   expect(page).to have_css '.svg-logo-full'
-  #   expect_url_includes 'paperlesspost'
-  # end
+  scenario 'search_bing' do
+    visit 'http://bing.com'
+    fill_in "q", :with => "Paperless Post"
+    find('[name="go"]').click
+    click_link 'Paperless Post - Official Site'
+    expect(page).to have_css '.svg-logo-full'
+    expect_url_includes 'paperlesspost'
+  end
 end
 
 # Go to Google.
